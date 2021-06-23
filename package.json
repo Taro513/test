@@ -1,0 +1,69 @@
+{
+  "name": "start-kit-pc",
+  "version": "1.0.0",
+  "description": "Template for generating vue sketch",
+  "author": "luozhifeng <luozhifeng@tuhu.cn>",
+  "private": true,
+  "scripts": {
+    "clear": "rimraf ./deploy/",
+    "start": " cross-env HOST=127.0.0.1 PORT=80  TH_ENV=dev  thrall start",
+    "start:work": "cross-env HOST=127.0.0.1 PORT=80 TH_ENV=work thrall start",
+    "start:ut": "cross-env  HOST=127.0.0.1 PORT=80  TH_ENV=ut thrall start",
+    "start:test": "cross-env  HOST=127.0.0.1 PORT=80  TH_ENV=test thrall start",
+    "copy": "node ./bin/copy.js",
+    "del": "node ./bin/del.js",
+    "build:prod": "npm run clear && cross-env TH_ENV=prod thrall build",
+    "build:work": "npm run clear && cross-env TH_ENV=work thrall build",
+    "build:ut": "npm run clear && cross-env TH_ENV=ut thrall build",
+    "build:test": "npm run clear && cross-env TH_ENV=test thrall build",
+    "lint": "thrall lint"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "6.26.0",
+    "echarts": "^4.2.1",
+    "element-ui": "git+ssh://git@gitlab.tuhu.cn:tuhuc/h5/BasicConstructor/element-ui-fork.git",
+    "eslint-loader": "^1.9.0",
+    "exif-js": "^2.3.0",
+    "install": "^0.13.0",
+    "jwt-decode": "^2.2.0",
+    "moment": "^2.24.0",
+    "npm": "^6.10.2",
+    "numeral": "^2.0.6",
+    "oidc-client": "1.10.1",
+    "tiger-lib": "git+ssh://git@gitlab.tuhu.cn:tuhuc/h5/tigerlib.git#1.1.2-beta.1",
+    "tiger-ui": "git+ssh://git@gitlab.tuhu.cn:tuhuc/h5/tigerui.git#2.1.4",
+    "tiger-ui-pc": "1.1.26",
+    "tiger-ui-pcbiz": "git+ssh://git@gitlab.tuhu.cn:tuhuc/h5/BizSupport/tiger-ui-pcBiz.git#2.0.18",
+    "v-charts": "^1.19.0",
+    "v-viewer": "^1.4.1",
+    "vue": "2.6.10",
+    "vue-clipboard2": "^0.3.0",
+    "vue-router": "^3.0.1",
+    "vue-worker": "^1.2.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "copy-webpack-plugin": "^4.0.1",
+    "husky": "^1.3.1",
+    "start-kit-builder": "1.0.11",
+    "babel-plugin-transform-modules": "^0.1.1",
+    "eslint": "5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-import-resolver-webpack": "^0.8.4",
+    "eslint-plugin-html": "^5.0.5",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "nprogress": "^0.2.0",
+    "cross-env": "^5.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "thrall lint"
+    }
+  }
+}
